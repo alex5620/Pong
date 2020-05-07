@@ -18,11 +18,15 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="1" />
   </component>
   <component name="ProjectId" id="1b5WofR31tNFvvP6JsFehyWAIhH" />
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="node.js.detected.package.eslint" value="true" />
@@ -31,6 +35,7 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -77,10 +82,40 @@
       <option name="presentableId" value="Default" />
       <updated>1587922611012</updated>
       <workItem from="1587922615355" duration="9095000" />
+      <workItem from="1587972986290" duration="96000" />
+      <workItem from="1588099341059" duration="6493000" />
+      <workItem from="1588160399903" duration="964000" />
+      <workItem from="1588250079241" duration="1767000" />
+      <workItem from="1588264459430" duration="1513000" />
+      <workItem from="1588271339574" duration="2299000" />
+      <workItem from="1588527854125" duration="2679000" />
+      <workItem from="1588576258367" duration="37000" />
+      <workItem from="1588616457785" duration="3449000" />
+      <workItem from="1588661944565" duration="36000" />
+      <workItem from="1588676481145" duration="6859000" />
+      <workItem from="1588684106176" duration="980000" />
+      <workItem from="1588707576824" duration="45000" />
+      <workItem from="1588835689268" duration="6222000" />
+      <workItem from="1588850984529" duration="7093000" />
+      <workItem from="1588858635101" duration="8393000" />
+      <workItem from="1588873063040" duration="2190000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

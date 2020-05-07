@@ -5,43 +5,34 @@ public class Player extends GameObject {
     public static int instances=0;
     private float velY=5;
     private int id;
-    public Player(Game game){
+    public Player(GameState gameState){
         id=instances;
         ++instances;
-        this.game = game;
-        this.objectImage=game.getImagesLoader().getPlayerImage();
+        this.gameState = gameState;
+        this.objectImage= gameState.getImagesLoader().getImage("player");
         this.width=objectImage.getWidth();
         this.height=objectImage.getHeight();
-        if(id==0)
-        {
-            posX=115;
-            posY=335;
-        }
-        else
-        {
-            posX=885;
-            posY=335;
-        }
+        setToInitialPosition();
     }
     @Override
-    public void update(float dt) {
+    public void update() {
         if(id==1) {
-            if (game.getKeyboardInput().isKey(KeyEvent.VK_RIGHT)) {//update pozitie jucator
+            if (gameState.getKeyboardInput().isKey(KeyEvent.VK_RIGHT)) {//update pozitie jucator
                 posY -= velY;
                 checkForBoundaries();
             }
-            if (game.getKeyboardInput().isKey(KeyEvent.VK_LEFT)) { //update pozitie jucator
+            if (gameState.getKeyboardInput().isKey(KeyEvent.VK_LEFT)) { //update pozitie jucator
                 posY += velY;
                 checkForBoundaries();
             }
         }
         else
         {
-            if (game.getKeyboardInput().isKey(KeyEvent.VK_D)) {//update pozitie jucator
+            if (gameState.getKeyboardInput().isKey(KeyEvent.VK_D)) {//update pozitie jucator
                 posY += velY;
                 checkForBoundaries();
             }
-            if (game.getKeyboardInput().isKey(KeyEvent.VK_A)) { //update pozitie jucator
+            if (gameState.getKeyboardInput().isKey(KeyEvent.VK_A)) { //update pozitie jucator
                 posY -= velY;
                 checkForBoundaries();
             }
@@ -51,7 +42,7 @@ public class Player extends GameObject {
     public void render(Renderer r) {
         r.drawImage(objectImage, (int)posX,(int)posY);
     }                                                 //dimensiunea player-ului
-    private void checkForBoundaries()            //se verifica limita din stanga si din dreapta a ferestrei
+    protected void checkForBoundaries()            //se verifica limita din stanga si din dreapta a ferestrei
     {
         if(posY<165)
         {
@@ -59,8 +50,40 @@ public class Player extends GameObject {
         }
         if(posY+height>578)
         {
-            System.out.println("Yes");
             posY=578-height;
+        }
+    }
+    public float getX()
+    {
+        return posX;
+    }
+    public float getY()
+    {
+        return posY;
+    }
+    public int getHeight()
+    {
+        return height;
+    }
+    public int getWidth()
+    {
+        return width;
+    }
+    public int getId()
+    {
+        return id;
+    }
+    public static void resetInstanes()
+    {
+        instances=0;
+    }
+    public void setToInitialPosition() {
+        if (id == 0) {
+            posX = 115;
+            posY = 335;
+        } else {
+            posX = 885;
+            posY = 335;
         }
     }
 }

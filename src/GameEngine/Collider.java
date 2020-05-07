@@ -2,16 +2,16 @@ package GameEngine;
 import java.awt.Rectangle;
 
 public class Collider {
-    private Game game;
-    public Collider(Game game) {
-        this.game = game;
+    private GameState gameState;
+    public Collider(GameState gameState) {
+        this.gameState = gameState;
     }
     public void update() {
-        for(GameObject obj: game.getObjects())
+        for(GameObject obj: gameState.getObjects())
         {
             if(obj instanceof Ball)
             {
-                for(GameObject player: game.getObjects())
+                for(GameObject player: gameState.getObjects())
                 {
                     if(player instanceof Player)
                     {

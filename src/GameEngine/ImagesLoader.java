@@ -1,35 +1,30 @@
 package GameEngine;
-import GameEngine.Image;
+
+import java.util.HashMap;
 
 public class ImagesLoader {
-    private Image backgroundImage;
-    private Image ballImage;
-    private Image playerImage;
-    private Image []numberImage;
+    private HashMap<String,Image> images;
     public ImagesLoader()
     {
-        backgroundImage=new Image("/Assets/background.png");
-        ballImage=new Image("/Assets/ball.png");
-        playerImage=new Image("/Assets/player.png");
-        numberImage=new Image[10];
+        images=new HashMap<String, Image>();
+        images.put("background", new Image("/Assets/background.png"));
+        images.put("ball", new Image("/Assets/ball.png"));
+        images.put("player", new Image("/Assets/player.png"));
         for(int i=0;i<10;++i)
         {
-            numberImage[i]=new Image("/Assets/"+i+".png");
+            images.put(Integer.toString(i),new Image("/Assets/"+i+".png"));
         }
+        images.put("settingsmenu", new Image("/Assets/settingsmenu.png"));
+        images.put("checked", new Image("/Assets/checked.png"));
+        images.put("unchecked", new Image("/Assets/unchecked.png"));
+        images.put("mainmenu", new Image("/Assets/mainmenu.png"));
+        images.put("simple", new Image("/Assets/simple.png"));
+        images.put("pause", new Image("/Assets/pause.png"));
+        images.put("back", new Image("/Assets/back.png"));
+        images.put("someoneWon", new Image("/Assets/someoneWon.png"));
     }
-    public Image getBackgroundImage() {
-        return backgroundImage;
-    }
-    public Image getBallImage()
+    public Image getImage(String key)
     {
-        return ballImage;
-    }
-    public Image getPlayerImage()
-    {
-        return playerImage;
-    }
-    public Image getNumberImage(int index)
-    {
-        return numberImage[index];
+        return images.get(key);
     }
 }

@@ -27,7 +27,7 @@ public class Window {
         frame.add(canvas, BorderLayout.CENTER);
         frame.pack();//frameul va avea dimensiunea egala cu cea a canvas
         frame.setLocationRelativeTo(null);//fereastra va aparea in mijlocul ecranului
-        //frame.setResizable(false);
+        frame.setResizable(false);
         frame.setVisible(true);
         canvas.createBufferStrategy(2);
         bs=canvas.getBufferStrategy();

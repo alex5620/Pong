@@ -6,14 +6,16 @@ public class GameEngine implements Runnable {
     private Thread thread;
     private Window window;
     private Renderer renderer;
-    private Game game;
     private KeyboardInput keyboardInput;
     private MouseInput mouseInput;
     private ImagesLoader imagesLoader;
+    private State currentState;
+    private SaveProperties properties;
     private boolean running;
     private final double UPDATE_CAP = 1.0 / 60.0;
     private final int width = 1024, height = 640;
     private final String title = "PONG";
+    public enum geState{ MainMenuState, SettingsMenuState, GameState};
     public GameEngine() {
         running = false;
         thread = new Thread(this);
@@ -22,18 +24,19 @@ public class GameEngine implements Runnable {
         imagesLoader= new ImagesLoader();
         keyboardInput = new KeyboardInput(this);
         mouseInput=new MouseInput(this);
-        game=new Game(this);
+        currentState=new MainMenuState(this);;
+        properties=new SaveProperties();
     }
 
-    private void update(float dt) {
-        game.update(dt);
+    private void update() {
+        currentState.update();
         keyboardInput.update();
         mouseInput.update();
     }
     private void render() {
         renderer.clear();
         renderer.process();
-        game.render();
+        currentState.render(renderer);
         window.update();
     }
     public void run() {
@@ -60,7 +63,7 @@ public class GameEngine implements Runnable {
             {
                 unprocessedTime -= UPDATE_CAP;
                 Render = true;
-                update((float)UPDATE_CAP);
+                update();
                 if (frameTime >= 1.0) {
                     frameTime = 0;
                     fps = frames;
@@ -78,6 +81,20 @@ public class GameEngine implements Runnable {
                     e.printStackTrace();
                 }
             }
+        }
+    }
+    public void setState(geState state)
+    {
+        switch (state) {
+            case GameState:
+                currentState = new GameState(this);
+                break;
+            case MainMenuState:
+                currentState = new MainMenuState(this);
+                break;
+            case SettingsMenuState:
+                currentState= new SettingsMenuState(this);
+                break;
         }
     }
     public synchronized void start() {
@@ -98,13 +115,15 @@ public class GameEngine implements Runnable {
     public Window getWindow() {
         return window;
     }
-    public Renderer getRenderer() {
-        return renderer;
-    }
-    public boolean isRunning() {
-        return running;
-    }
     public ImagesLoader getImagesLoader() { return imagesLoader; }
     public KeyboardInput getKeyboardInput() { return keyboardInput; }
     public MouseInput getMouseInput() { return mouseInput; }
+    public String[] getSettings()
+    {
+        return properties.getSettings();
+    }
+    public void setSettings(int score, boolean singlePlayer)
+    {
+        properties.setProperties(score, singlePlayer);
+    }
 }
