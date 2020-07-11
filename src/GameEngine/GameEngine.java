@@ -1,5 +1,15 @@
 package GameEngine;
 
+import GameEngine.Graphics.Renderer;
+import GameEngine.Input.KeyboardInput;
+import GameEngine.Input.MouseInput;
+import GameEngine.Loaders.ImagesLoader;
+import GameEngine.Loaders.SoundsLoader;
+import GameEngine.States.GameState;
+import GameEngine.States.MainMenuState;
+import GameEngine.States.SettingsMenuState;
+import GameEngine.States.State;
+
 import static java.lang.Thread.sleep;
 
 public class GameEngine implements Runnable {
@@ -9,6 +19,7 @@ public class GameEngine implements Runnable {
     private KeyboardInput keyboardInput;
     private MouseInput mouseInput;
     private ImagesLoader imagesLoader;
+    private SoundsLoader soundsLoader;
     private State currentState;
     private SaveProperties properties;
     private boolean running;
@@ -22,6 +33,7 @@ public class GameEngine implements Runnable {
         window = new Window(this);
         renderer = new Renderer(this);
         imagesLoader= new ImagesLoader();
+        soundsLoader= new SoundsLoader();
         keyboardInput = new KeyboardInput(this);
         mouseInput=new MouseInput(this);
         currentState=new MainMenuState(this);;
@@ -34,7 +46,6 @@ public class GameEngine implements Runnable {
         mouseInput.update();
     }
     private void render() {
-        renderer.clear();
         renderer.process();
         currentState.render(renderer);
         window.update();
@@ -68,7 +79,7 @@ public class GameEngine implements Runnable {
                     frameTime = 0;
                     fps = frames;
                     frames = 0;
-                    System.out.println("Fps: " + fps);
+                    //System.out.println("Fps: " + fps);
                 }
             }
             if (Render) {
@@ -116,14 +127,15 @@ public class GameEngine implements Runnable {
         return window;
     }
     public ImagesLoader getImagesLoader() { return imagesLoader; }
+    public SoundsLoader getSoundsLoader() { return soundsLoader; }
     public KeyboardInput getKeyboardInput() { return keyboardInput; }
     public MouseInput getMouseInput() { return mouseInput; }
     public String[] getSettings()
     {
         return properties.getSettings();
     }
-    public void setSettings(int score, boolean singlePlayer)
+    public void setSettings(int score, boolean singlePlayer, boolean isEasy)
     {
-        properties.setProperties(score, singlePlayer);
+        properties.setProperties(score, singlePlayer, isEasy);
     }
 }

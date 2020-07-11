@@ -12,7 +12,7 @@ public class SaveProperties {
     private String info[];
     public SaveProperties()
     {
-        info=new String[2];
+        info=new String[3];
     }
     public String[] getSettings()
     {
@@ -27,17 +27,22 @@ public class SaveProperties {
             info[1]=prop.getProperty("singlePlayer");
             if(info[1]==null)
                 info[1]="false";
+            info[2]=prop.getProperty("isEasy");
+            if(info[2]==null)
+                info[2]="true";
         }
         catch (Exception e) {
             info[0]="3";
             info[1]="false";
+            info[2]="true";
         }
         return info;
     }
-    public void setProperties(int score, boolean singlePlayer)
+    public void setProperties(int score, boolean singlePlayer, boolean isEasy)
     {
         prop.setProperty("score", Integer.toString(score));
         prop.setProperty("singlePlayer", Boolean.toString(singlePlayer));
+        prop.setProperty("isEasy", Boolean.toString(isEasy));
         try {
             output=new FileOutputStream("settings.properties");
             prop.store(output, null);

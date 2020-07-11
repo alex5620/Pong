@@ -29,12 +29,16 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="project.structure.last.edited" value="Problems" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
@@ -99,6 +103,29 @@
       <workItem from="1588850984529" duration="7093000" />
       <workItem from="1588858635101" duration="8393000" />
       <workItem from="1588873063040" duration="2190000" />
+      <workItem from="1588882803458" duration="212000" />
+      <workItem from="1588932248016" duration="92000" />
+      <workItem from="1592226835366" duration="208000" />
+      <workItem from="1592227298384" duration="2812000" />
+      <workItem from="1592230455801" duration="93000" />
+      <workItem from="1592235185440" duration="102000" />
+      <workItem from="1592296885256" duration="1230000" />
+      <workItem from="1592679719898" duration="537000" />
+      <workItem from="1592680748822" duration="6470000" />
+      <workItem from="1592729182394" duration="1149000" />
+      <workItem from="1592762470079" duration="2405000" />
+      <workItem from="1592836268797" duration="299000" />
+      <workItem from="1592855173167" duration="31000" />
+      <workItem from="1593889443457" duration="106000" />
+      <workItem from="1594309768404" duration="13024000" />
+      <workItem from="1594353479682" duration="837000" />
+      <workItem from="1594355395600" duration="8445000" />
+      <workItem from="1594368537828" duration="6564000" />
+      <workItem from="1594383744474" duration="8272000" />
+      <workItem from="1594403445625" duration="2384000" />
+      <workItem from="1594407449981" duration="76000" />
+      <workItem from="1594457520057" duration="13070000" />
+      <workItem from="1594494844031" duration="2158000" />
     </task>
     <servers />
   </component>
@@ -117,5 +144,17 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-field">
+          <url>file://$PROJECT_DIR$/src/GameEngine/States/GameState.java</url>
+          <line>24</line>
+          <properties field="singlePlayer" class="GameEngine.States.GameState" />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
